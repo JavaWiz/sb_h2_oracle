@@ -29,6 +29,22 @@ public class SbH2OracleApplication {
 	        product.setDescription("Spring Framework Guru Shirt");
 	        product.setPrice(new BigDecimal("18.95"));
 	        repository.save(product);
+	        
+	        Product fetchedProduct = repository.findById(product.getId()).get();
+	        logger.debug("{}", fetchedProduct);
+	        
+	        //update description and save
+	        fetchedProduct.setDescription("New Description");
+	        repository.save(fetchedProduct);
+	        
+	      //get from DB, should be updated
+	        Product fetchedUpdatedProduct = repository.findById(fetchedProduct.getId()).get();
+	        logger.debug("{}", fetchedUpdatedProduct);
+	        
+	        //verify count of products in DB
+	        long productCount = repository.count();
+	        logger.debug("{}", productCount);
+	        
 			repository.findAll().stream().forEach(data -> {
 				logger.debug("{}", data);
 			});
