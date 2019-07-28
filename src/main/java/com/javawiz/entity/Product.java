@@ -10,9 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Version;
 
-import org.hibernate.annotations.Generated;
-import org.hibernate.annotations.GenerationTime;
-
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
