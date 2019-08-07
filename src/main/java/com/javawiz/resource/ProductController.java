@@ -11,34 +11,34 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.javawiz.entity.Person;
-import com.javawiz.service.PersonService;
+import com.javawiz.entity.Product;
+import com.javawiz.service.ProductService;
 
 @RestController
 @RequestMapping("/api")
-public class PersonController {
+public class ProductController {
 
     @Autowired
-    PersonService personService;
+    ProductService productService;
 
-    @GetMapping("/persons")
-    private List<Person> getAllPersons() {
-        return personService.getAllPersons();
+    @GetMapping("/products")
+    private List<Product> getAllPersons() {
+        return productService.listAllProducts();
     }
 
-    @GetMapping("/persons/{id}")
-    private Person getPerson(@PathVariable("id") int id) {
-        return personService.getPersonById(id);
+    @GetMapping("/products/{id}")
+    private Product getPerson(@PathVariable("id") int id) {
+        return productService.getProductById(id);
     }
 
-    @DeleteMapping("/persons/{id}")
+    @DeleteMapping("/products/{id}")
     private void deletePerson(@PathVariable("id") int id) {
-        personService.delete(id);
+        productService.deleteProduct(id);
     }
 
-    @PostMapping("/persons")
-    private int savePerson(@RequestBody Person person) {
-        personService.saveOrUpdate(person);
-        return person.getId();
+    @PostMapping("/products")
+    private int savePerson(@RequestBody Product product) {
+        productService.saveProduct(product);
+        return product.getId();
     }
 }
