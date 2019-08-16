@@ -23,8 +23,8 @@ public class Product {
 	private Integer version;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "prooduct_id_seq")
-	@SequenceGenerator(name = "prooduct_id_seq", sequenceName = "PRODUCT_ID_SEQ", allocationSize = 100)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "product_id_seq")
+	@SequenceGenerator(name = "product_id_seq", sequenceName = "PRODUCT_SEQ", allocationSize = 100)
 	private Integer id;
 	
 	private String productId;
